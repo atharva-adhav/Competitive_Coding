@@ -1,4 +1,6 @@
+// Topic: Prefix Sum
 // https://usaco.guide/silver/prefix-sums?lang=cpp
+// http://www.usaco.org/index.php?page=viewproblem2&cpid=595
 
 //#include <bits/stdc++.h>
 #include <iostream>
@@ -23,7 +25,7 @@
 using namespace std;
 
 #define imie(...) " [" << #__VA_ARGS__ ": " << (__VA_ARGS__) << "] "
-#define int long long
+#define ll long long
 #define ull unsigned long long
 #define IOS ios::sync_with_stdio(false);cin.tie(0);cout.tie(0);
 #define pb push_back
@@ -34,31 +36,22 @@ using namespace std;
 void solve() {
     int N;
     cin >> N;
-    vector<int> a(N+1);
-    for(int i = 1; i <= N; i++) {
-        cin >> a[i];
+    vector<int> pos(7, -1);
+    long long sum = 0;
+    int ans = 0;
+    for(int i = 0; i < N; i++) {
+        int a;
+        cin >> a;
+        sum += a;
+        if(pos[sum%7] == -1)
+            pos[sum%7] = i;
+        else
+            ans = max(ans, i - pos[sum%7]);
     }
-    
-    vector<int> pref(N+1);
-    for(int i = 1; i <= N; i++) {
-        pref[i] = pref[i-1] + a[i];
-    }
-
-    int max_size = 0;
-    for(int L = N; L >= 1; L--) {
-        for(int i = 1; i+L-1 <= N; i++) {
-            if((pref[i+L-1] - pref[i-1]) % 7 == 0) {
-                max_size = L;
-                break;
-            }
-        }
-        if(max_size > 0)
-            break;
-    }
-    cout << max_size;
+    cout << ans;
 }
 
-int32_t main() 
+int main() 
 {
     freopen("div7.in", "r", stdin);
     freopen("div7.out", "w", stdout);

@@ -1,4 +1,6 @@
+// Topic: Prefix Sum
 // https://usaco.guide/silver/prefix-sums?lang=cpp
+// https://leetcode.com/problems/find-pivot-index/
 
 class Solution {
 public:
