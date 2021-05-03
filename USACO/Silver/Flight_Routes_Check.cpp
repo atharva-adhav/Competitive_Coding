@@ -1,6 +1,7 @@
 // Topic: DFS
 // https://usaco.guide/silver/dfs?lang=cpp
 // https://cses.fi/problemset/task/1682
+// Level: Medium
 
 // If the vertex 1 can reach every other vertex and also the vertex can be reached by every other vertex, then the answer is true
 

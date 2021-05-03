@@ -1,6 +1,7 @@
 // Topic: DFS, Binary Search
 // https://usaco.guide/silver/dfs?lang=cpp
 // http://www.usaco.org/index.php?page=viewproblem2&cpid=992
+// Level: Medium
 
 // Use binary search for width, then check for each network of connected component if the destination index and
 // inital index are in same networks

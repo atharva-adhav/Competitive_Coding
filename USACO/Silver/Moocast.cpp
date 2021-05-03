@@ -1,6 +1,7 @@
 // Topic: DFS
 // https://usaco.guide/silver/dfs?lang=cpp
 // http://www.usaco.org/index.php?page=viewproblem2&cpid=668
+// Level: Easy
 
 //#include <bits/stdc++.h>
 #include <iostream>
