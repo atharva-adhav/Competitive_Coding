@@ -1,5 +1,6 @@
 // Topic: DP, Bitset
 // https://codeforces.com/contest/1516
+// Rating: 1700
 
 //#include <bits/stdc++.h>
 #include <iostream>

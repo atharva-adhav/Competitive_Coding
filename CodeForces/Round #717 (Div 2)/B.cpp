@@ -1,6 +1,7 @@
 // Topic: Bruteforce
 // https://codeforces.com/contest/1516
 // Level: Easy-Medium
+// Rating: 1500
 
 //#include <bits/stdc++.h>
 #include <iostream>
