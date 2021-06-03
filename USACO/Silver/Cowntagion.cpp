@@ -1,4 +1,4 @@
-// http://www.usaco.org/index.php?page=viewproblem2&cpid=788
+// http://www.usaco.org/index.php?page=viewproblem2&cpid=1062
 
 //#include <bits/stdc++.h>
 #include <iostream>
@@ -31,41 +31,38 @@ using namespace std;
 #define fi first
 #define se second
 
-const int MAX_N = 5e3+2;
-unordered_map<int, int> adj[MAX_N];
+const int MAXN = 1e5+2;
+int d[MAXN];
 
-int dfs(int u, int p, int val, int k) {
-    int ans = 0;
-    for(auto to : adj[u]) {
-        if(to.first == p) continue;
-        if(min(val, to.second) >= k) {
-            ans += 1+dfs(to.first, u, min(val, to.second), k);
-        }
-    }
-    return ans;
-}
 
 void solve() {
-    int N, Q;
-    cin >> N >> Q;
-    for(int i = 0; i < N-1; i++) {
-        int a, b, r;
-        cin >> a >> b >> r;
-        adj[a][b] = r;
-        adj[b][a] = r;;
+    int N;
+    cin >> N;
+    for(int i = 0, a, b; i < N-1; i++) {
+        cin >> a >> b;
+        d[a]++; d[b]++;
     }
-
-    for(int i = 0; i < Q; i++) {
-        int k, v;
-        cin >> k >> v;
-        cout << dfs(v, -1, INT_MAX, k) << '\n';
+    int ans = N-1;
+    for(int i = 1; i <= N; i++) {
+        if(d[i] > 1 || i == 1) {
+            int children = d[i];
+            if(i != 1)
+                children--;
+            
+            int log_c = 0, pow = 1;
+            while(pow < children+1) {
+                log_c++; pow *= 2;
+            }
+            ans += log_c;
+        }
     }
+    cout << ans << '\n';
 }
 
-int main() 1
+int main() 
 {
-    freopen("mootube.in", "r", stdin);
-    freopen("mootube.out", "w", stdout);
+    //freopen("input.txt", "r", stdin);
+    //freopen("output.txt", "w", stdout);
     IOS;
 
     int t = 1;
